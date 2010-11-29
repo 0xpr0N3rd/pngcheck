@@ -56,7 +56,7 @@ def parsePNG(filename):
     with open(filename, "rb") as f:
         s = f.read()
         if struct.unpack(">B3sBBBB", s[:8]) != PNGMagic:
-            print "Not an valid png file. Try {0} --fixheader {1}.".format(argv[0], filename)
+            print "Not a valid png file. Try {0} --fixheader {1}.".format(argv[0], filename) // Not yet implemented
             return
         l = getSections(s[8:])
 
