@@ -24,7 +24,6 @@ def fixIDATLength(filestring, position, output):
         
     if length == -1:
         return False
-    print length
     position -= 8
     filestring = struct.pack(">B3sBBBB", *PNGMagic) + filestring[:position] + struct.pack(">I", length) + filestring[position+4:]
     with open(output, "wb") as f:
