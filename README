@@ -1,5 +1,5 @@
 pngcheck v 0.1
-This program parses an png format and tries to fix some errors.
+This program parses png format files and tries to fix some errors.
 
 Versions:
 0.1: Initial version
