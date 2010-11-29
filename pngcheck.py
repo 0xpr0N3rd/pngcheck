@@ -28,6 +28,7 @@ def fixIDATLength(filestring, position, output):
     filestring = struct.pack(">B3sBBBB", *PNGMagic) + filestring[:position] + struct.pack(">I", length) + filestring[position+4:]
     with open(output, "wb") as f:
         f.write(filestring)
+        f.close()
     return True
 
 def getSections(filestring):
@@ -55,8 +56,9 @@ def getSections(filestring):
 def parsePNG(filename):
     with open(filename, "rb") as f:
         s = f.read()
+        f.close()
         if struct.unpack(">B3sBBBB", s[:8]) != PNGMagic:
-            print "Not a valid png file. Try {0} --fixheader {1}.".format(argv[0], filename) // Not yet implemented
+            print "Not a valid png file. Try {0} --fixheader {1}.".format(argv[0], filename) # Not yet implemented
             return
         l = getSections(s[8:])
 
